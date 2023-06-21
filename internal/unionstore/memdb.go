@@ -254,17 +254,21 @@ func (db *MemDB) UpdateFlags(key []byte, ops ...kv.FlagsOp) {
 // Set sets the value for key k as v into kv store.
 // v must NOT be nil or empty, otherwise it returns ErrCannotSetNilValue.
 func (db *MemDB) Set(key []byte, value []byte) error {
-	if len(value) == 0 {
-		return tikverr.ErrCannotSetNilValue
-	}
+	/*
+		if len(value) == 0 {
+			return tikverr.ErrCannotSetNilValue
+		}
+	*/
 	return db.set(key, value)
 }
 
 // SetWithFlags put key-value into the last active staging buffer with the given KeyFlags.
 func (db *MemDB) SetWithFlags(key []byte, value []byte, ops ...kv.FlagsOp) error {
-	if len(value) == 0 {
-		return tikverr.ErrCannotSetNilValue
-	}
+	/*
+		if len(value) == 0 {
+			return tikverr.ErrCannotSetNilValue
+		}
+	*/
 	return db.set(key, value, ops...)
 }
 
